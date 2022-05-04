@@ -41,10 +41,12 @@ This is really rudimentary and sends the text to flite executable through shell 
 |-----------------------------+------------------------------------------------|
 | flite-clear-overlays        | Clear overlays from canceling a command        |
 | flite-read-region-lines     | Read region line by line.                      |
-| flite-read-last-kill-lines  | Read last killed text line by line.            |
 | flite-read-region-words     | Read region word by word.                      |
+| flite-read-last-kill-lines  | Read last killed text line by line.            |
 | flite-read-words-from-point | Read word by word starting from current point. |
 | flite-read-lines-from-point | Read line by line starting from current point. |
+| flite-resume-last-lines     | Resume Last unread region line by line.        |
+| flite-resume-last-words     | Resume Last unread region word by word.        |
 
 ** Screenshot
 Here screenshot of flite mode showing the lines it is reading. Blue is the region that was selected for reading and green is the line it's currently reading.

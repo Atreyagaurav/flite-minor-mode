@@ -160,6 +160,24 @@
   (interactive)
     (flite-read-region-lines (point) (point-max)))
 
+(defun flite-resume-last-words ()
+  "Read word by word starting from current point."
+  (interactive)
+  (let ((beg (overlay-start flite-reading-overlay-current))
+	(end (overlay-end flite-reading-overlay-region)))
+    (if (and beg end)
+	(flite-read-region-words beg end)
+      (message "Nothing to resume."))))
+
+(defun flite-resume-last-lines ()
+  "Read line by line starting from current point."
+  (interactive)
+  (let ((beg (overlay-start flite-reading-overlay-current))
+	(end (overlay-end flite-reading-overlay-region)))
+    (if (and beg end)
+     (flite-read-region-lines beg end)
+      (message "Nothing to resume."))))
+
 
 (define-minor-mode flite-minor-mode
   "Minor mode for Flite TTS system.")
