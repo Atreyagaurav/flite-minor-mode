@@ -1,12 +1,19 @@
 * flite minor mode
 
 ** Introduction
+Minor mode to use festival lite TTS system from emacs.
 
+[[https://youtu.be/cbdUKpmNZQM][Video demo]]
+
+This is really rudimentary and sends the text to flite executable through shell command.
 
 ** TOC :TOC:noexports:
 - [[#flite-minor-mode][flite minor mode]]
   - [[#introduction][Introduction]]
   - [[#configurations][configurations]]
+  - [[#customizable-variables][Customizable variables]]
+  - [[#useful-functions][Useful functions]]
+  - [[#screenshot][Screenshot]]
 
 ** configurations
 #+begin_src emacs-lisp :tangle yes
@@ -17,3 +24,29 @@
   :config
   (setq flite-executable "flite_cmu_us_slt"))
 #+end_src
+
+** Customizable variables
+
+#+begin_src emacs-lisp :tangle yes
+(defvar flite-executable "flite"
+  "Executable to call for flite process.")
+
+(defvar flite-args "-pw"
+  "Arguments to pass for flite process.")
+#+end_src
+
+** Useful functions
+
+| Function                    | Use                                            |
+|-----------------------------+------------------------------------------------|
+| flite-clear-overlays        | Clear overlays from canceling a command        |
+| flite-read-region-lines     | Read region line by line.                      |
+| flite-read-last-kill-lines  | Read last killed text line by line.            |
+| flite-read-region-words     | Read region word by word.                      |
+| flite-read-words-from-point | Read word by word starting from current point. |
+| flite-read-lines-from-point | Read line by line starting from current point. |
+
+** Screenshot
+Here screenshot of flite mode showing the lines it is reading. Blue is the region that was selected for reading and green is the line it's currently reading.
+
+[[./screenshot.png]]

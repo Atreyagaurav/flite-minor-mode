@@ -121,7 +121,7 @@
 
 
 (defun flite-read-last-kill-lines ()
-  "Read region line by line."
+  "Read last killed text line by line."
   (interactive)
   (let ((lines
 	 (split-string
