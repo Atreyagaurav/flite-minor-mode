@@ -31,7 +31,7 @@ This is really rudimentary and sends the text to flite executable through shell 
 (defvar flite-executable "flite"
   "Executable to call for flite process.")
 
-(defvar flite-args "-pw"
+(defvar flite-args "-pw"(local-set-key [menu-bar flite read-region] (cons "Read Region Line By Line" 'flite-read-region-lines))
   "Arguments to pass for flite process.")
 #+end_src
 
@@ -52,3 +52,7 @@ This is really rudimentary and sends the text to flite executable through shell 
 Here screenshot of flite mode showing the lines it is reading. Blue is the region that was selected for reading and green is the line it's currently reading.
 
 [[./screenshot.png]]
+
+** Bugs
+- Stucks at end if the region has end of buffer.
+- Menu isn't removed when the minor mode is disabled.

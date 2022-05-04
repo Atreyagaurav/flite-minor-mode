@@ -40,10 +40,10 @@
 (defvar flite-args "-pw"
   "Arguments to pass for flite process.")
 
-(defvar flite-reading-overlay-region (make-overlay 0 0)
+(defvar flite-reading-overlay-region nil
   "overlay region.")
 
-(defvar flite-reading-overlay-current (make-overlay 0 0)
+(defvar flite-reading-overlay-current nil
   "overlay current.")
 
 ;; faces for highlighting
@@ -188,5 +188,25 @@
   ;; 	     '("Read Region" . flite-read-region-lines)))
 
 (provide 'flite-minor-mode)
+
+;; menu bar for flite mode.
+(local-set-key [menu-bar flite] (cons "Flite" (make-sparse-keymap)))
+
+(local-set-key [menu-bar flite clear-overlays]
+	       (cons "Clear overlays" 'flite-clear-overlays))
+(local-set-key [menu-bar flite read-region-lines]
+	       (cons "Read region (line)" 'flite-read-region-lines))
+(local-set-key [menu-bar flite read-region-words]
+	       (cons "Read region (word)" 'flite-read-region-words))
+(local-set-key [menu-bar flite read-last-kill-lines]
+	       (cons "Read last killed text (line)" 'flite-read-last-kill-lines))
+(local-set-key [menu-bar flite read-words-from-point]
+	       (cons "Read from point (word)" 'flite-read-words-from-point))
+(local-set-key [menu-bar flite read-lines-from-point]
+	       (cons "Read from point (line)" 'flite-read-lines-from-point))
+(local-set-key [menu-bar flite resume-last-lines]
+	       (cons "Resume Last region (line)" 'flite-resume-last-lines))
+(local-set-key [menu-bar flite resume-last-words]
+	       (cons "Resume Last region (word)" 'flite-resume-last-words))
 
 ;;; flite-minor-mode.el ends here
