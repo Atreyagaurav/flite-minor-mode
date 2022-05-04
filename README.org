@@ -1,0 +1,19 @@
+* flite minor mode
+
+** Introduction
+
+
+** TOC :TOC:noexports:
+- [[#flite-minor-mode][flite minor mode]]
+  - [[#introduction][Introduction]]
+  - [[#configurations][configurations]]
+
+** configurations
+#+begin_src emacs-lisp :tangle yes
+(use-package flite-minor-mode
+  :load-path "~/.emacs.d/myfunc/flite-minor-mode/"
+  :commands flite-minor-mode
+  :hook text-mode
+  :config
+  (setq flite-executable "flite_cmu_us_slt"))
+#+end_src
